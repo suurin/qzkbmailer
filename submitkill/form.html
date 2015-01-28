@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>The Bombers Bar (Kill Board)</title>
+  </head>
+  <body bgcolor="#000000" text="#999999" link="#FFCC33" vlink="#FFCC33" alink="#FFCC33">
+    <table width="1000" align="center" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td><a href="/index.html"><img src="/TBBTitle.jpg" width="1000" height="200" border="0"></a></td>
+      </tr>
+      <tr>
+        <td><img src="/kb.jpg" width="1000" height="30" usemap="#Map" border="0"></td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+      </tr>
+    </table>
+
+    <table width="1000" align="center" cellpadding="0" cellspacing="0" border="0">
+      <tr>
+        <td>
+          <span id="msg"></span>
+          <form id="zkillsub">
+            zKillboard Link: <input type="text" placeholder="zKillboard link" name="zkb" style="width: 512px;"> <br>
+            Password: <input type="password" placeholder="Password" name="pass"> <br><br>
+            <input type="submit">
+          </form>
+        </td>
+      </tr>
+    </table>
+
+    <map name="Map">
+      <area shape="rect" coords="335,8,449,27" href="media.html">
+      <area shape="rect" coords="508,10,638,26" href="about.html">
+    </map>
+
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript">
+      $('#zkillsub').submit(function(ev) {
+          ev.preventDefault();
+          $.ajax({
+            type: "POST",
+            url: 'submit.php',
+            data: $("#zkillsub").serialize(),
+            success: function(data) {
+               $('#msg').text(data);
+            }
+         });
+      });
+    </script>
+  </body>
+</html>

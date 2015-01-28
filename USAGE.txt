@@ -1,0 +1,8 @@
+Requirements:
+1. PHP 5
+2. php_mbstring extension (can be enabled in php.ini)
+
+Installation:
+1. Extract to it's own folder (preferably).
+2. Edit lib/config.php.
+3. Open form.html in browser (can be renamed whatever)
